@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Catching Buddha</title>
+	<style>
+	html, body{
+		background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet); /* For Safari 5.1 to 6.0 */
+		background: -o-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet); /* For Opera 11.1 to 12.0 */
+		background: -moz-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet); /* For Fx 3.6 to 15 */
+		background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); /* Standard syntax (must be last) */
+	}
+
+	h1, h2, h3, title {
+		color: white;
+		text-align: center;
+		text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;  
+	}
+
+	#frame{
+		width:800px;
+		height:300px;
+		border:5px solid darkblue;
+		position: absolute;
+		background-color: gray;
+		margin: auto;
+		right: 0;
+		left: 0;
+	}
+
+	.button{
+		background-color: lightblue;
+		padding: 15px 32px;
+		text-align: center;
+		font-size: 16px;
+		border-radius: 50%;
+	}
+
+	#BUTTONS{
+		text-align:center;
+		margin:auto;
+		right: 0;
+		left: 0;
+	}
+	</style>
+</head>
+<body>
+
+	<h1>Can you reach Enlightenment?</h1>
+	<h2>To become Enlightened, Click on The Buddha</h2>
+	<h3>By Elijah Rydzewski</h3>
+	
+	<div id = "BUTTONS">
+		<button class = "button" id = "1" onclick="enable()"> Buddha Run</button>
+		<button class = "button" id = "2" onclick="disable()"> Buddha Stop</button>
+		<script> document.getElementById('1').disabled=true;</script>
+	</div>
+
+	<p></p>	
+	<div id="frame">
+		<img id="r6" onmouseover = "move(this)" src="buddha.png" onclick="winner()" style = "width:10%; position: absolute; top: 10px; left: 10px;"/>
+	</div>
+
+	<script type="text/javascript">
+		function winner(){
+			alert("Congratulations, you have reached Enlightenment!");
+		}
+
+		function set(){
+			document.getElementById('2').disabled=true;
+		}
+
+		function disable(){
+			document.getElementById('2').disabled=true;
+			document.getElementById('1').disabled=false;
+		}
+
+		function enable(){
+			document.getElementById('1').disabled=true;
+			document.getElementById('2').disabled=false;
+		}
+
+		function move(x){
+			if (document.getElementById('1').disabled==true)
+			{
+				var l1 =Math.floor((Math.random()* 720) + 1);
+				var t1 = Math.floor((Math.random() * 200) + 1);
+				x.style.left = l1 + "px";
+				x.style.top = t1 + "px";
+			}
+		}
+	</script>
+</body>	
+</html>
